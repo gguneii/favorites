@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div class="p-5">
+        <h1 class="text-center font-bold text-[25px]">PRODUCTS</h1>
+        <div class=" px-5 cursor-pointer">
+            <p>Home/ Products/ <span class="font-bold">Favorites</span></p>
+        </div>
+        <div
+            class="cards grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between overflow-hidden items-center flex-wrap cursor-pointer p-5">
+        </div>
+    </div>
+
+    <h3 onclick="showFavs()" class="font-bold absolute border p-1 rounded-sm bg-red-100 top-10 text-[20px] right-[10%] mt-4 cursor-pointer">Favorites
+        <i class="fa-solid fa-heart  text-[red]"></i>
+    </h3>
+    <div id="wishlist" class="w-[300px] hidden h-auto absolute  top-20 bg-white right-[5%]">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
