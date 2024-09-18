@@ -372,20 +372,31 @@ data.map((item, index) => {
 const wishlist = document.getElementById('wishlist')
 
 function addToWishlist(index) {
-    const selectedItem = data[index]
-    wishlist.innerHTML += `
-    <div id="wishlist-${index}" class="card w-full h-auto flex border rounded-sm justify-between my-2">
-    <div class="flex">
-    <img class="w-20" src="${selectedItem.img}" alt="">
-    <div class="px-2"><h3 class="font-semibold py-1 text-[10px]">${selectedItem.name}</h3>
-    <p class="font-bold text-[12px]">$${selectedItem.price}</p>
-    </div>
-    </div>
-    <div><i onclick="deleteWislist(${index})" class="fa-solid cursor-pointer fa-x px-2"></i></div>
-    </div>
-   `
-   const fav = document.querySelectorAll('.fav')[index]
-   fav.style.color = 'red'; 
+   
+    const fav = document.querySelectorAll('.fav')[index]
+    if (fav.style.color === 'red') {
+        fav.style.color = 'white'
+    } else {
+        fav.style.color = 'red';
+    }
+    const isInWishlist = document.getElementById(`wishlist-${index}`);
+    if (isInWishlist) {
+        isInWishlist.remove();
+    } 
+    else{
+        const selectedItem = data[index]
+        wishlist.innerHTML += `
+        <div id="wishlist-${index}" class="card w-full h-auto flex border rounded-sm justify-between my-2">
+        <div class="flex">
+        <img class="w-20" src="${selectedItem.img}" alt="">
+        <div class="px-2"><h3 class="font-semibold py-1 text-[10px]">${selectedItem.name}</h3>
+        <p class="font-bold text-[12px]">$${selectedItem.price}</p>
+        </div>
+        </div>
+        <div><i onclick="deleteWislist(${index})" class="fa-solid cursor-pointer fa-x px-2"></i></div>
+        </div>
+       `
+    }
 }
 
 function showFavs() {
@@ -395,4 +406,8 @@ function showFavs() {
 function deleteWislist(index) {
     const wishlistItem = document.getElementById(`wishlist-${index}`)
     wishlistItem.remove()
+    const favIcons = document.querySelectorAll('.fav');
+    if (favIcons[index]) {
+        favIcons[index].style.color = 'white';
+    }
 }
